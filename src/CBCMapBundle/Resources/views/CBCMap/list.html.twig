@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Address</th>
+      <th scope='col'></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for elem in elems %}
+    <tr>
+      <th scope="row">{{elem.id}}</th>
+      <td>{{elem.name}}</td>
+      <td>{{elem.category}}</td>
+      <td>{{elem.address}}</td>
+      <td class="row">
+        <a class="btn btn-primary" style="margin:10px" data-toggle="collapse" href='#addPicture{{elem.id}}' role="button" aria-expanded="false" aria-controls="collapseExample">
+            Add a picture
+        </a>
+            {{form_start(del_forms[elem.id])}}
+            {{form_widget(del_forms[elem.id])}}
+            {{form_end(del_forms[elem.id])}}
+      </td>
+    </tr>
+        <tr class="collapse" id='addPicture{{elem.id}}'>
+          <td colspan="5">
+            {{form_start(forms[elem.id])}}
+            {{form_widget(forms[elem.id])}}
+            {{form_end(forms[elem.id])}}
+          </td>
+        </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+{% endblock %}

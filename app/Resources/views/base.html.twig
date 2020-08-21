@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="module" src="https://getbootstrap.com/docs/4.5/dist/js/bootstrap.bundle.min.js"></script>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Cat Beer Cheesecake Map{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/CBCMap/web/stylesheets/CBCMap.css" type="text/css" media="all" />
+        <style>
+      #map_canvas {
+        width: 600px;
+        height: 400px;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    </head>
+    <body>
+        <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">CBC Map</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="http://localhost/CBCMap/web/app_dev.php/">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="http://localhost/CBCMap/web/app_dev.php/upload">Upload</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="http://localhost/CBCMap/web/app_dev.php/list/">List</a>
+                </li>
+            </ul>
+            <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            </div>
+        </nav>
+        </header>
+        <br/>
+
+        <div class="container">
+
+        {% block body %}{% endblock %}
+
+        </div>
+
+        <footer class="footer mt-auto py-3">
+        <div class="container">
+            <span class="text-muted">Powered by Suzanne for DATM.</span>
+        </div>
+        </footer>
+        
+        {% block javascripts %}{% endblock %}
+
+    </body>
+</html>
